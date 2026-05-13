@@ -10,9 +10,9 @@
     btnClear: document.getElementById('btnClear'),
     btnOpen: document.getElementById('btnOpen'),
     mask: document.getElementById('resultMask'),
+    cardKicker: document.getElementById('cardKicker'),
     cardQuote: document.getElementById('cardQuote'),
     cardMentor: document.getElementById('cardMentor'),
-    cardStar: document.getElementById('cardStar'),
     btnAgain: document.getElementById('btnAgain'),
   }
 
@@ -135,13 +135,22 @@
 
   function revealQuote() {
     const themeIds = Array.from(selectedThemeIds)
-    const result = pickRandom(themeIds)
+    const result1 = pickRandom(themeIds)
+
     if (navigator.vibrate) navigator.vibrate(40)
+
     showResult = true
-    els.cardQuote.textContent = result.text
-    els.cardMentor.textContent = result.mentor
-    els.cardStar.textContent = `★ ${result.star}`
+    els.cardQuote.textContent = result1.text
+    els.cardMentor.textContent = result1.mentor
     els.mask.hidden = false
+    // Trigger confetti effect when the card is drawn
+    if (typeof confetti !== 'undefined') {
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }
     els.canvasWrap.hidden = true
     els.placeholder.hidden = false
   }
