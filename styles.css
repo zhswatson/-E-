@@ -67,7 +67,8 @@ body {
   text-align: center;
   margin-bottom: 0.65rem;
   letter-spacing: 0.05rem;
-  line-height: 1.45;
+  line-height: 1.55;
+  padding: 0 0.25rem;
 }
 
 .theme-bar {
@@ -100,42 +101,6 @@ body {
     0 4px 12px rgba(183, 28, 28, 0.35);
 }
 
-.hint {
-  display: block;
-  width: 100%;
-  font-size: 0.95rem;
-  color: #4e342e;
-  text-align: center;
-  line-height: 1.5;
-  padding: 0 0.25rem;
-}
-
-.talisman-frame {
-  width: 100%;
-  height: min(14rem, 52vw);
-  min-height: 10.5rem;
-  margin-bottom: 0.7rem;
-  border-radius: 0.35rem;
-  border: 2px solid #b71c1c;
-  padding: 2px;
-  background: #e6c660;
-  overflow: hidden;
-}
-
-.talisman-canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  touch-action: none;
-  cursor: crosshair;
-}
-
-.talisman-placeholder {
-  width: 100%;
-  height: 100%;
-  background: #fff8e7;
-}
-
 .draw-actions {
   display: flex;
   justify-content: center;
@@ -152,22 +117,11 @@ body {
   border: none;
 }
 
-.btn--ghost {
-  background: rgba(255, 254, 250, 0.9);
-  color: #b71c1c;
-  border: 2px solid #b71c1c;
-}
-
 .btn--gold {
   background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
   color: #fff8e1;
   font-weight: 700;
   border: 2px solid #ffd54f;
-}
-
-.btn--gold:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
 }
 
 .mask {
