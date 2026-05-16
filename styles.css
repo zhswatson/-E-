@@ -34,10 +34,12 @@ body {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   max-width: 36rem;
   margin: 0 auto;
-  padding: 3.4rem 1.25rem 3rem;
+  padding: 3.4rem 1.25rem 3.4rem;
   background:
     radial-gradient(circle at 8% 18%, rgba(201, 151, 46, 0.18) 0 0.08rem, transparent 0.1rem 3rem),
     radial-gradient(circle at 88% 23%, rgba(201, 151, 46, 0.13) 0 0.1rem, transparent 0.12rem 3.2rem),
@@ -112,16 +114,24 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
-  max-width: 28rem;
+  gap: 0.15rem;
+  max-width: 30rem;
   margin: 0 auto;
+}
+
+.hero-copy {
+  display: flex;
+  flex: 0 1 15rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
 }
 
 .hero-title {
   position: relative;
   display: inline-block;
-  flex: 0 1 15rem;
-  width: min(56vw, 15rem);
+  width: min(50vw, 14.2rem);
   aspect-ratio: 888 / 268;
   overflow: hidden;
 }
@@ -139,10 +149,10 @@ body {
 .hero-cat {
   position: relative;
   display: inline-block;
-  flex: 0 0 clamp(5rem, 24vw, 8.2rem);
+  flex: 0 0 clamp(6.4rem, 31vw, 10.2rem);
   aspect-ratio: 719 / 685;
   overflow: hidden;
-  transform: translateY(0.15rem);
+  transform: translateY(0.3rem);
 }
 
 .hero-cat-img {
@@ -157,15 +167,22 @@ body {
 
 .hero-sub {
   display: block;
-  margin-top: 0.2rem;
-  font-size: 0.85rem;
+  margin-top: 1.5rem;
+  font-size: 1.02rem;
+  font-weight: 700;
   color: #6d4c41;
-  letter-spacing: 0.15rem;
+  letter-spacing: 0.22rem;
+  text-shadow: 0 0.04rem 0 rgba(241, 199, 91, 0.4);
 }
 
 .panel {
   position: relative;
   z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 1.4rem);
+  margin: 0 auto;
   border-radius: 0.8rem;
   padding: 1.35rem 0.95rem 1.5rem;
   background:
@@ -202,22 +219,28 @@ body {
 
 .panel::after {
   inset: 0.9rem 1.1rem 1.2rem;
-  opacity: 0.32;
+  opacity: 0.36;
   z-index: 0;
   background-image:
     url("./images/祥云.png"),
     url("./images/祥云.png"),
     url("./images/祥云.png"),
+    url("./images/祥云.png"),
+    url("./images/祥云.png"),
     url("./images/祥云.png");
   background-position:
-    left -4.6rem top 52%,
-    right -4.6rem top 52%,
-    left 14% bottom 2.2rem,
-    right 14% bottom 2.2rem;
+    left -4rem top 18%,
+    right -4rem top 18%,
+    left -4.3rem top 50%,
+    right -4.3rem top 50%,
+    left 10% bottom 0.8rem,
+    right 10% bottom 0.8rem;
   background-repeat: no-repeat;
   background-size:
-    7rem auto,
-    7rem auto,
+    6.2rem auto,
+    6.2rem auto,
+    6.6rem auto,
+    6.6rem auto,
     6rem auto,
     6rem auto;
 }
@@ -239,17 +262,24 @@ body {
 }
 
 .theme-bar {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
   justify-content: center;
-  gap: 0.45rem;
+  justify-items: center;
+  gap: 0.65rem 0.45rem;
   margin-bottom: 0.85rem;
+  padding: 0.15rem 0;
 }
 
 .theme-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.2rem;
   padding: 0.4rem 0.78rem;
   border-radius: 999px;
   font-size: 0.85rem;
+  line-height: 1.2;
   color: #8b2500;
   background: linear-gradient(180deg, #fffdf2 0%, #fff3d5 100%);
   border: 2px solid var(--gold-main);
@@ -274,10 +304,14 @@ body {
   display: flex;
   justify-content: center;
   gap: 0.75rem;
-  margin-top: 0.9rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
+  padding-bottom: 0.35rem;
 }
 
 .btn {
+  position: relative;
+  overflow: hidden;
   border-radius: 999px;
   padding: 0.45rem 1.1rem;
   font-size: 0.85rem;
@@ -287,13 +321,48 @@ body {
 }
 
 .btn--gold {
-  background: linear-gradient(180deg, #d32f2f 0%, #b71c1c 100%);
+  min-width: 7.4rem;
+  padding: 0.72rem 2.15rem 0.78rem;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255, 239, 174, 0.45), transparent 42%),
+    linear-gradient(180deg, #ef3f35 0%, #c51f1b 46%, #8f1212 100%);
   color: #fff8e1;
+  font-size: 1.02rem;
   font-weight: 700;
-  border: 2px solid #ffd54f;
+  letter-spacing: 0.08rem;
+  border: 0.16rem solid var(--gold-main);
   box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.28),
-    0 0.35rem 0.75rem rgba(122, 12, 12, 0.22);
+    inset 0 0 0 0.08rem rgba(143, 18, 18, 0.72),
+    inset 0 0.16rem 0.28rem rgba(255, 244, 191, 0.34),
+    inset 0 -0.2rem 0.32rem rgba(83, 0, 0, 0.32),
+    0 0.12rem 0 rgba(127, 16, 16, 0.55),
+    0 0.45rem 0.85rem rgba(122, 12, 12, 0.22);
+  text-shadow:
+    0 0.05rem 0 rgba(90, 0, 0, 0.4),
+    0 0 0.35rem rgba(255, 218, 98, 0.3);
+}
+
+.btn--gold::before,
+.btn--gold::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 1.05rem;
+  height: 0.38rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: translateY(-50%);
+}
+
+.btn--gold::before {
+  left: 0.55rem;
+  background-image: url("./images/小祥云-left.png");
+}
+
+.btn--gold::after {
+  right: 0.55rem;
+  background-image: url("./images/小祥云-right.png");
 }
 
 .mask {
