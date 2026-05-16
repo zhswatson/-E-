@@ -52,7 +52,9 @@ body {
 }
 
 .page::before,
-.page::after {
+.page::after,
+.hero::before,
+.panel::after {
   content: "";
   position: absolute;
   pointer-events: none;
@@ -91,21 +93,71 @@ body {
   margin-bottom: 1.4rem;
 }
 
+.hero::before {
+  inset: -2.8rem -1rem -0.9rem;
+  opacity: 0.42;
+  background-image:
+    url("./images/祥云.png"),
+    url("./images/祥云.png");
+  background-position:
+    left -5.2rem top 1.9rem,
+    right -5.8rem top 2.2rem;
+  background-repeat: no-repeat;
+  background-size:
+    8.5rem auto,
+    8rem auto;
+}
+
+.hero-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
 .hero-title {
+  position: relative;
+  display: inline-block;
+  flex: 0 1 15rem;
+  width: min(56vw, 15rem);
+  aspect-ratio: 888 / 268;
+  overflow: hidden;
+}
+
+.hero-title-img {
+  position: absolute;
+  left: -7.88%;
+  top: -215.3%;
+  width: 115.32%;
+  height: auto;
+  max-width: none;
   display: block;
-  font-size: 1.75rem;
-  font-weight: 800;
-  letter-spacing: 0.45rem;
-  color: #b71c1c;
-  text-shadow:
-    0 0 1px #ffd54f,
-    2px 2px 0 rgba(255, 213, 79, 0.55),
-    -1px -1px 0 rgba(255, 213, 79, 0.35);
+}
+
+.hero-cat {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 clamp(5rem, 24vw, 8.2rem);
+  aspect-ratio: 719 / 685;
+  overflow: hidden;
+  transform: translateY(0.15rem);
+}
+
+.hero-cat-img {
+  position: absolute;
+  left: -21.7%;
+  top: -39.7%;
+  width: 142.42%;
+  height: auto;
+  max-width: none;
+  display: block;
 }
 
 .hero-sub {
   display: block;
-  margin-top: 0.45rem;
+  margin-top: 0.2rem;
   font-size: 0.85rem;
   color: #6d4c41;
   letter-spacing: 0.15rem;
@@ -133,6 +185,7 @@ body {
   box-shadow: none;
   border-radius: 0.45rem;
   pointer-events: none;
+  z-index: 2;
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M7 2H30V30H8V8H24V24H14V14H20' fill='none' stroke='%23f1c75b' stroke-width='3' stroke-linecap='butt' stroke-linejoin='miter'/%3E%3C/svg%3E"),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M25 2H2V30H24V8H8V24H18V14H12' fill='none' stroke='%23f1c75b' stroke-width='3' stroke-linecap='butt' stroke-linejoin='miter'/%3E%3C/svg%3E"),
@@ -145,6 +198,33 @@ body {
     right 0.16rem bottom 0.04rem;
   background-repeat: no-repeat;
   background-size: 1.28rem 1.28rem;
+}
+
+.panel::after {
+  inset: 0.9rem 1.1rem 1.2rem;
+  opacity: 0.32;
+  z-index: 0;
+  background-image:
+    url("./images/祥云.png"),
+    url("./images/祥云.png"),
+    url("./images/祥云.png"),
+    url("./images/祥云.png");
+  background-position:
+    left -4.6rem top 52%,
+    right -4.6rem top 52%,
+    left 14% bottom 2.2rem,
+    right 14% bottom 2.2rem;
+  background-repeat: no-repeat;
+  background-size:
+    7rem auto,
+    7rem auto,
+    6rem auto,
+    6rem auto;
+}
+
+.panel > * {
+  position: relative;
+  z-index: 1;
 }
 
 .theme-bar-title {
