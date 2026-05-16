@@ -200,7 +200,7 @@ body {
   inset: 0.02rem;
   border: 0;
   box-shadow: none;
-  border-radius: 0.45rem;
+  border-radius: 0.65rem;
   pointer-events: none;
   z-index: 2;
   background-image:
@@ -311,8 +311,9 @@ body {
 
 .btn {
   position: relative;
+  isolation: isolate;
   overflow: hidden;
-  border-radius: 999px;
+  border-radius: 0.45rem;
   padding: 0.45rem 1.1rem;
   font-size: 0.85rem;
   font-family: inherit;
@@ -321,8 +322,10 @@ body {
 }
 
 .btn--gold {
-  min-width: 7.4rem;
-  padding: 0.72rem 2.15rem 0.78rem;
+  width: 9rem;
+  height: 4.45rem;
+  padding: 0.72rem 2.25rem 0.76rem;
+  border-radius: 0.65rem;
   background:
     radial-gradient(circle at 50% 12%, rgba(255, 239, 174, 0.45), transparent 42%),
     linear-gradient(180deg, #ef3f35 0%, #c51f1b 46%, #8f1212 100%);
@@ -340,6 +343,9 @@ body {
   text-shadow:
     0 0.05rem 0 rgba(90, 0, 0, 0.4),
     0 0 0.35rem rgba(255, 218, 98, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn--gold::before,
@@ -349,10 +355,12 @@ body {
   top: 50%;
   width: 1.05rem;
   height: 0.38rem;
+  z-index: 1;
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
   transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .btn--gold::before {
@@ -382,7 +390,7 @@ body {
 
 .card {
   width: 100%;
-  max-width: 22rem;
+  max-width: 19rem;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -390,7 +398,7 @@ body {
     radial-gradient(circle at 8% 12%, rgba(201, 151, 46, 0.15) 0 0.08rem, transparent 0.1rem 3rem),
     linear-gradient(180deg, #fffef8 0%, #fff3da 100%);
   border-radius: 0.75rem;
-  padding: 1.25rem 1rem 1.1rem;
+  padding: 1.25rem 2.5rem 1.1rem;
   border: 0.28rem solid var(--frame-red);
   box-shadow:
     inset 0 0 0 0.11rem var(--gold-main),
@@ -401,11 +409,34 @@ body {
 
 .card-kicker {
   display: block;
-  font-size: 0.85rem;
+  font-size: 1.65rem;
   color: #b71c1c;
-  font-weight: 700;
-  letter-spacing: 0.35rem;
-  margin-bottom: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.28rem;
+  text-align: center;
+  margin-bottom: 0.45rem;
+  text-shadow:
+    0 0.04rem 0 rgba(241, 199, 91, 0.55),
+    0 0 0.35rem rgba(255, 218, 98, 0.25);
+}
+
+.card-divider {
+  position: relative;
+  display: block;
+  width: 88%;
+  aspect-ratio: 1197 / 80;
+  margin: 0.35rem auto 0.55rem;
+  overflow: hidden;
+}
+
+.card-divider-img {
+  position: absolute;
+  left: -14.45%;
+  top: -570%;
+  width: 128.32%;
+  height: auto;
+  max-width: none;
+  display: block;
 }
 
 .card-quote {
@@ -413,18 +444,20 @@ body {
   font-size: 1rem;
   line-height: 1.65;
   color: #1f1410;
-  margin-bottom: 1rem;
+  margin: 0.3rem 0 0.45rem;
 }
 
 .card-meta {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding-top: 0.65rem;
-  border-top: 2px dashed rgba(201, 151, 46, 0.55);
+  justify-content: center;
+  padding-top: 0.15rem;
 }
 
 .card-mentor {
+  display: block;
+  width: 100%;
+  text-align: center;
   font-size: 0.9rem;
   color: #8b2500;
   font-weight: 600;
@@ -437,13 +470,25 @@ body {
 }
 
 .btn-card-action {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   align-self: center;
   margin-top: 1rem;
-  border-radius: 0.5rem;
-  padding: 0.65rem 1.75rem;
-  background: linear-gradient(180deg, #d32f2f 0%, #9a1818 100%);
-  border: 3px solid #ffd54f;
-  box-shadow: 0 8px 20px rgba(90, 0, 0, 0.25);
+  width: 9rem;
+  height: 4.45rem;
+  border-radius: 0.35rem;
+  padding: 0.72rem 2.25rem 0.76rem;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255, 239, 174, 0.36), transparent 42%),
+    linear-gradient(180deg, #ef3f35 0%, #c51f1b 46%, #8f1212 100%);
+  border: 0.16rem solid var(--gold-main);
+  box-shadow:
+    inset 0 0 0 0.08rem rgba(143, 18, 18, 0.72),
+    inset 0 0.16rem 0.28rem rgba(255, 244, 191, 0.28),
+    inset 0 -0.2rem 0.32rem rgba(83, 0, 0, 0.28),
+    0 0.12rem 0 rgba(127, 16, 16, 0.55),
+    0 0.45rem 0.85rem rgba(90, 0, 0, 0.25);
   display: inline-flex;
   flex-direction: column;
   align-items: center;
@@ -452,7 +497,34 @@ body {
   font-family: inherit;
 }
 
+.btn-card-action::before,
+.btn-card-action::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 1.05rem;
+  height: 0.38rem;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.btn-card-action::before {
+  left: 0.65rem;
+  background-image: url("./images/小祥云-left.png");
+}
+
+.btn-card-action::after {
+  right: 0.65rem;
+  background-image: url("./images/小祥云-right.png");
+}
+
 .btn-card-line {
+  position: relative;
+  z-index: 2;
   font-size: 0.9rem;
   font-weight: 700;
   color: #fff8e1;
